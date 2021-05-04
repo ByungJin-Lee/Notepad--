@@ -1,5 +1,7 @@
-# Notepad--
-## Summary
+Notepad--
+===
+Summary
+---
 + Team
     +   Byungjin.dev@gmail.com - Leader
     +   DoubleDeltas
@@ -20,7 +22,8 @@
         +   Presentation
         +   Finish Project
 
-### Branch
+Branch
+---
 +   master
     + Onwer : Byungjin.dev@gamil.com
     + Warning
@@ -36,8 +39,8 @@
     + Onwer : Lee20203188
     + Part :
 
-### Detail
-
+Detail
+---
 +   master : 1.0.0
     +   upload - README.md
         +   Summary
