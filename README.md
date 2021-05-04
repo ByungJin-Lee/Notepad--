@@ -27,16 +27,16 @@ Summary
 Branch
 ---
 +   master
-    + Onwer : Byungjin.dev@gamil.com
+    + Onwer : Byungjin.dev@gmail.com
     + Warning
         + Don't use this branch without meeting!!
-        + Please Check Everthing before 'Push'!!
+        + Please Check Everything before 'Push'!!
    
 +   byungjin
-    + Onwer : Byungjin.dev@gmail.com
+    + Owner : Byungjin.dev@gmail.com
     + Part : 
    
-+   doubledelta
++   doubledeltas
     + Onwer : DoubleDeltas
     + Part : 
    
@@ -55,3 +55,8 @@ Detail
 + master : 1.0.11
     +   upload - README.md
         +   change content
+
++ doubledeltas : 1.0.12
+    +   create new branch
+    +   upload - README.md
+        +   correct minor typo error
