@@ -23,6 +23,7 @@ Summary
     +   Day(26)
         +   Presentation
         +   Finish Project
+   
 Branch
 ---
 +   master
@@ -43,7 +44,6 @@ Branch
     + Onwer : Lee20203188
     + Part :
    
-
 Detail
 ---
 +   master : 1.0.0
