@@ -6,9 +6,11 @@ Summary
     +   Byungjin.dev@gmail.com - Leader
     +   DoubleDeltas
     +   Lee20203188
+   
 + Purpose
     +   Learn Android Application(with Java)
     +   How to make Android Application
+   
 + Schedule(21-05-04 ~ 21-05-26)
     +   Week 1(04 ~ 11)
         +   Learn about Android Studio
@@ -21,7 +23,6 @@ Summary
     +   Day(26)
         +   Presentation
         +   Finish Project
-
 Branch
 ---
 +   master
@@ -29,15 +30,19 @@ Branch
     + Warning
         + Don't use this branch without meeting!!
         + Please Check Everthing before 'Push'!!
+   
 +   byungjin
     + Onwer : Byungjin.dev@gmail.com
     + Part : 
+   
 +   doubledelta
     + Onwer : DoubleDeltas
     + Part : 
+   
 +   lee3188
     + Onwer : Lee20203188
     + Part :
+   
 
 Detail
 ---
@@ -46,3 +51,7 @@ Detail
         +   Summary
         +   Branch
         +   Detail
+   
++ master : 1.0.11
+    +   upload - README.md
+        +   change content
