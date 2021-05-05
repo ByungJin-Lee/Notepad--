@@ -55,3 +55,7 @@ Detail
 + master : 1.0.11
     +   upload - README.md
         +   change content
+
++ byungjin : 1.0.1
+    +   created First Application
+        + Folder 'Week1_practice'
