@@ -4,7 +4,7 @@ Branch _doubledeltas_
 
 Owner: DoubleDeltas
  
-+ doubledeltas : 1.1.0
++ doubledeltas : 1.1.1
     + pushed android studio project
       (for exercise, this will be deleted when main project starts)
 
