@@ -10,6 +10,10 @@ Owner: DoubleDeltas
 + apply to main project 
 
 ### Change Log:
++ doubledeltas : 1.2.1
+    + fix rendering error
+        * You must enable **File > Settings > Experiments > Use new Layout Rendering Engine** in Android Studio.
+
 
 + doubledeltas : 1.2.0
     + roughly designed MainActivity, TextViewerActivity, TextEditorActivity
