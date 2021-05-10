@@ -10,7 +10,7 @@
         android:id="@+id/et_title"
         android:layout_width="204dp"
         android:layout_height="63dp"
-        android:autofillHints=""
+        android:autofillHints="Notepad--"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
@@ -35,6 +35,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:srcCompat="@drawable/ico_pencil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
