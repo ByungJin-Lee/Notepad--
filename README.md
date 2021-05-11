@@ -10,6 +10,10 @@ Owner: DoubleDeltas
 + apply to main project 
 
 ### Change Log:
++ work_doubledeltas : 1.3.1: 2ND MEETING
+    + created new branch from _doubledeltas 1.3.0_
+    + designed File, DataManager class (roughly) 
+
 + doubledeltas : 1.2.1
     + fix rendering error
         * You must enable **File > Settings > Experiments > Use new Layout Rendering Engine** in Android Studio.
