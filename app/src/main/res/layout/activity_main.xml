@@ -37,4 +37,19 @@
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/ico_pencil" />
 
+    <Button
+        android:id="@+id/btn_memo1"
+        android:layout_width="165dp"
+        android:layout_height="190dp"
+        android:layout_margin="10sp"
+        android:gravity="top|start"
+        android:text="memo1"
+        android:background="@drawable/btn_memo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.419" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
