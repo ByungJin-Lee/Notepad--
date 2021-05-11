@@ -15,4 +15,5 @@ Owner: DoubleDeltas
     + designed File, DataManager class (roughly) 
 
 ### Source of Resources:
- * sketchy pictogram icons by [Denis Sazhin](https://thenounproject.com/iconka/ "Click to go to his profile") in [Noun Project](https://thenounproject.com/, "click to go to Noun Project").
+ * sketchy pictogram icons by [Denis Sazhin](https://thenounproject.com/iconka/ "Click to go to the profile") in [Noun Project](https://thenounproject.com/, "click to go to Noun Project").
+    + more sketchy icons: [#](https://thenounproject.com/iconka/collection/sketchy-icons/ "Click to the collection")
