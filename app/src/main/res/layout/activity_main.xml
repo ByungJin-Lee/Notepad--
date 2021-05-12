@@ -1,55 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:id="@+id/cLayout">
 
-    <EditText
-        android:id="@+id/et_title"
-        android:layout_width="204dp"
-        android:layout_height="63dp"
-        android:autofillHints="Notepad--"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="Notepad--"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_newNote"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:backgroundTint="@android:color/holo_green_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@drawable/ico_pencil" />
+        android:layout_weight="1">
+        <!--  Title Area -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="280sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+                <!--Title-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notepad--"
+                    android:textSize="43sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"/>
+                <!--Sub Title-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:text=""
+                    android:textSize="17sp"
+                    android:id="@+id/noteCount"/>
+
+            </LinearLayout>
+            <!--  Inner Area  -->
+            <LinearLayout
+                android:id="@+id/innerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+<!--    &lt;!&ndash;    Top Layout&ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="3"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:gravity="center">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Notepad&#45;&#45;"-->
+<!--            android:textSize="43sp"-->
+<!--            android:textStyle="bold"/>-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash;    Inner Layout&ndash;&gt;-->
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="7">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/innerLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--        </LinearLayout>-->
+
+<!--    </ScrollView>-->
 
     <Button
-        android:id="@+id/btn_memo1"
-        android:layout_width="165dp"
-        android:layout_height="190dp"
-        android:layout_margin="10sp"
-        android:gravity="top|start"
-        android:text="memo1"
-        android:background="@drawable/btn_memo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        android:id="@+id/newNoteBtn"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:layout_marginRight="15sp"
+        android:layout_marginTop="-70sp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_green_dark"
+        android:text="+"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_newnote">
+    </Button>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    Footer Area -->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottomLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1.2"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/newNoteBtn"-->
+<!--            android:layout_width="50sp"-->
+<!--            android:layout_height="50sp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginRight="15sp"-->
+<!--            android:layout_marginTop="8sp"-->
+<!--            android:clickable="true"-->
+<!--            app:backgroundTint="@android:color/holo_green_dark"-->
+<!--            android:text="+"-->
+<!--            android:textSize="35sp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:background="@drawable/btn_newnote">-->
+
+<!--        </Button>-->
+<!--    </LinearLayout>-->
+</LinearLayout>
