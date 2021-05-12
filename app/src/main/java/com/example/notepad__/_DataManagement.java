@@ -51,9 +51,10 @@ class DataManager {
     }
 
     static public boolean isExternalStorageReadable() {
-        String state = Environment.getExternalStorageState();
-        return (Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
+//        String state = Environment.getExternalStorageState();
+//        return (Environment.MEDIA_MOUNTED.equals(state) ||
+//                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
+        return false;
     }
 
     static public boolean search(){
@@ -84,7 +85,6 @@ class DataManager {
         catch (Exception e) {
             return false;
         }
-
     }
 
     static public boolean saveText(FileInfo f, String s) {

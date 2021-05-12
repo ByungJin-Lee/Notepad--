@@ -32,6 +32,11 @@ public class test extends AppCompatActivity {
                 boolean res = DataManager.search();
                 str += String.valueOf(res) + '\n';
 
+                if (!res) {
+                    txt_test.setText(String.valueOf(res));
+                    return;
+                }
+
                 for (FileInfo file : DataManager.files)
                     str += file.index + ' ' + file.path;
 
