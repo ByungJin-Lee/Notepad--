@@ -3,15 +3,22 @@ package com.example.notepad__;
 import android.os.Environment;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 class FileInfo {
+    /**
+     * @author  DoubleDeltas
+     * @version 0.1
+     * @see     java.io.File
+     */
+
     public String fileName;
     public String path;
-    public boolean isNew = false;
-    public int index = 0;
+    public boolean isNew;
+    public int index;
 
     public FileInfo(String fileName, String path, boolean isNew, int index) {
         this.fileName = fileName;
@@ -22,8 +29,18 @@ class FileInfo {
 }
 
 class DataManager {
+    /**
+     * @author  DoubleDeltas
+     * @version 0.1
+     * @see     FileInfo
+     * @see     java.util.ArrayList
+     * @see     java.io.FileReader
+     * @see     java.io.FileWriter
+     * @see     android.os.Environment
+     */
+
     static public String DIR_PATH =
-            Environment.getExternalStorageDirectory().getAbsolutePath() + "Notepad--";
+            Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notepad--";
 
     static ArrayList<FileInfo> files;
 
@@ -40,7 +57,7 @@ class DataManager {
     }
 
     static public boolean search(){
-        /*
+        /**
          * 외부 저장소에서 파일을 불러와 files에 append.
          */
         if (!isExternalStorageReadable())
@@ -48,34 +65,35 @@ class DataManager {
         File dir = new File(DIR_PATH);
         try {
             if (!dir.exists()) {
-                dir.mkdirs(); // Notepad-- 폴더 생성
-                return true; // 검색 결과 없음
+                dir.mkdirs();           // Notepad-- 폴더 생성
+                return true;            // 검색 결과 없음
             }
             if (!dir.isDirectory()) {
-                return false; // Notepad--라는 '파일'이 있어 생성 불가
+                return false;           // Notepad--라는 '파일'이 있어 생성 불가
             }
-            File[] files = dir.listFiles();
+            File[] lst = dir.listFiles();
             for (int i = 0; i < dir.list().length; ++i) {
-                if (files[i].isDirectory())
-                    continue; // "Notepad--/(폴더)" 꼴은 일단 무시
-                String name = files[i].getName();
-                FileInfo fi = new FileInfo(name, DIR_PATH + name, false, i);
-                this.files.add(fi);
+                if (lst[i].isDirectory())
+                    continue;           // "Notepad--/(폴더)" 꼴은 일단 무시
+                String name = lst[i].getName();
+                FileInfo fi = new FileInfo(name, DIR_PATH + "/" + name, false, i);
+                files.add(fi);
             }
             return true;
         }
-        catch (IOException e) {
+        catch (Exception e) {
             return false;
         }
 
     }
 
     static public boolean saveText(FileInfo f, String s) {
-        /*
+        /**
          * f의 내용을 s로 갱신한 후 files와 외부 저장소에 적용
-         * 파일이 없으면 생성됨. 성공 여부를 return함.
+         * 파일이 없으면 생성됨.
          * @param f 내용이 저장될 FileInfo
          * @param s 저장할 내용
+         * @return 파일 생성 성공 여부를 return.
          */
         if (!isExternalStorageWritable())
             return false;
@@ -94,33 +112,52 @@ class DataManager {
     }
 
     static public String loadText(FileInfo f) {
-        /*
+        /**
          * f를 불러와 내용을 return함.
-         * 불러오기에 실패하면 null을 return함.
          * @param f 내용을 불러올 FileInfo
+         * @return f의 내용을 return. 불러오기 실패하면 null을 return.
          */
         if (!isExternalStorageReadable())
-            return null; //
-
-        return // real content
+            return null;
+        File file = new File(f.path);
+        char[] buffer = new char[1024];
+        try {
+            FileReader reader = new FileReader(file);
+            reader.read(buffer);
+            return String.valueOf(buffer);
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
     static public String loadText(int i) {
-        /*
+        /**
          * DataManager.files[i]를 불러와 내용을 return함.
-         * 불러오기에 실패하면 null을 return함.
          * @param i 불러올 파일의 인덱스
+         * @return files[i]의 내용을 return. 불러오기 실패하면 null을 return.
          */
         return loadText(files.get(i));
     }
 
     static public boolean delete(FileInfo f) {
-        /*
-         * 외부 저장소에 files에서 f를 삭제함.
-         * 성공 여부를 return함.
+        /**
+         * 외부 저장소와 files에서 f를 삭제함.
          * @param f 삭제할 파일의 fileInfo
+         * @return 성공 여부를 return함.
          */
+        files.remove(f); // 지우려고 시도함.
+        File file = new File(f.path);
+        boolean res = file.delete();
 
-        return true;
+        return res;
+    }
+    static public boolean delete(int i) {
+        /**
+         * DataManager.files[i]을 외부저장소와 files에서 삭제
+         * @param i 삭제할 파일의 인덱스
+         * @return 성공 여부를 return함.
+         */
+        return delete(files.get(i));
     }
 }
 
