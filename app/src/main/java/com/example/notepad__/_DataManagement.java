@@ -1,16 +1,7 @@
 package com.example.notepad__;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
-import android.content.pm.PackageManager;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileReader;
@@ -18,8 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import static java.text.DateFormat.getDateTimeInstance;
 
 class DMconst {
     private DMconst() {}; // 객체 생성 금지

@@ -11,6 +11,10 @@ Owner: DoubleDeltas
 + apply to main project 
 
 ### Change Log:
++ work_doubledeltas : 1.4.2
+    + plus some optimizing
+    + no longer _'141'_
+
 + work_doubledeltas : 1.4.1
     + completed implements of all methods. (+ delete())
 
