@@ -12,6 +12,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.notepad__.DataManagement.DataManager;
+
 import me.byungjin.Manager;
 import me.byungjin.controllers.LandingController;
 import me.byungjin.listeners.NewNoteListener;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         // 외부 저장소 권한 물어보기
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) // Marshmellow
             checkPermission();
+        //Search Files
+        DataManager.search();
         //Manager
         Manager.setMainActivityContext(this);
         Manager.setMainActivityLinearLayout((LinearLayout)findViewById(R.id.innerLayout));

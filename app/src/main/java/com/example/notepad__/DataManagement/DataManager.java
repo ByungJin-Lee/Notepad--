@@ -1,4 +1,4 @@
-package com.example.notepad__;
+package com.example.notepad__.DataManagement;
 
 import android.os.Environment;
 import android.util.Log;
@@ -10,67 +10,33 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-class DMconst {
-    private DMconst() {}; // 객체 생성 금지
-    static public final String DIR_PATH =
-            Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notepad--";
-}
-
-class FileInfo {
+public class DataManager {
     /**
-     * @author  DoubleDeltas
+     * @author DoubleDeltas
      * @version 0.1
-     * @see     java.io.File
+     * @see FileInfo
+     * @see java.util.ArrayList
+     * @see java.io.FileReader
+     * @see java.io.FileWriter
+     * @see android.os.Environment
      */
 
-    public String fileName;
-    public String path;
-    public boolean isNew;
-    public int index;
-    public String lastModified;
+    public static ArrayList<FileInfo> files = new ArrayList<FileInfo>();
 
-    public FileInfo(String fileName, String path, boolean isNew, int index, String lastModified) {
-        this.fileName = fileName;
-        this.path = path;
-        this.isNew = isNew;
-        this.index = index;
-        this.lastModified = lastModified;
-    }
-    public FileInfo(String fileName, int index) {
-        this(fileName, DMconst.DIR_PATH + "/" + fileName, false, index,
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                        .format(System.currentTimeMillis()));
-
-        Log.v("알림", "FileInfo 객체 생성(2 args)");
-    }
-}
-
-class DataManager {
-    /**
-     * @author  DoubleDeltas
-     * @version 0.1
-     * @see     FileInfo
-     * @see     java.util.ArrayList
-     * @see     java.io.FileReader
-     * @see     java.io.FileWriter
-     * @see     android.os.Environment
-     */
-
-    static ArrayList<FileInfo> files = new ArrayList<FileInfo>();
-
-    private DataManager() {} // 객체 생성을 막기 위한 private 생성자
+    private DataManager() {
+    } // 객체 생성을 막기 위한 private 생성자
 
     static public boolean isExternalStorageWritable() {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
     static public boolean isExternalStorageReadable() {
-            String state = Environment.getExternalStorageState();
-            return (Environment.MEDIA_MOUNTED.equals(state) ||
-                    Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
+        String state = Environment.getExternalStorageState();
+        return (Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
     }
 
-    static public boolean search(){
+    static public boolean search() {
         /**
          * 외부 저장소에서 파일을 불러와 files에 append.
          */
@@ -91,14 +57,13 @@ class DataManager {
                 if (lst[i].isDirectory())
                     continue;           // "Notepad--/(폴더)" 꼴은 일단 무시
                 String name = lst[i].getName();
-                FileInfo fi = new FileInfo(name, DMconst.DIR_PATH + "/" + name,false, i,
+                FileInfo fi = new FileInfo(name, DMconst.DIR_PATH + "/" + name, false, i,
                         new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                                 .format(lst[i].lastModified()));
                 files.add(fi);
             }
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }
@@ -113,7 +78,7 @@ class DataManager {
          */
         if (!isExternalStorageWritable())
             return false;
-        File file = new File(f.path);
+        File file = new File(f.getPath());
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -122,11 +87,10 @@ class DataManager {
             FileWriter writer = new FileWriter(file, false);
             writer.write(s);
             writer.close();
-            Log.v("알림", "save 완료. (" + f.fileName + ", " + s + ")");
+            Log.v("알림", "save 완료. (" + f.getFileName() + ", " + s + ")");
             return true;
-        }
-        catch (IOException e) {
-            Log.e("알림", "save 실패. (" + f.fileName + ", " + s + ") - IOException");
+        } catch (IOException e) {
+            Log.e("알림", "save 실패. (" + f.getFileName() + ", " + s + ") - IOException");
             Log.e("알림", e.getMessage());
             return false;
         }
@@ -140,17 +104,17 @@ class DataManager {
          */
         if (!isExternalStorageReadable())
             return null;
-        File file = new File(f.path);
+        File file = new File(f.getPath());
         char[] buffer = new char[1024];
         try {
             FileReader reader = new FileReader(file);
             reader.read(buffer);
             return String.valueOf(buffer);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }
+
     static public String loadText(int i) {
         /**
          * DataManager.files[i]를 불러와 내용을 return함.
@@ -170,17 +134,17 @@ class DataManager {
             return false;
         try {
             files.remove(f); // 지우려고 시도함.
-            File file = new File(f.path);
+            File file = new File(f.getPath());
             boolean res = file.delete();
             Log.v("알림", "delete try");
             return res;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e("알림", "delete 실패 - Exception");
             Log.e("알림", e.getMessage());
             return false;
         }
     }
+
     static public boolean delete(int i) {
         /**
          * DataManager.files[i]을 외부저장소와 files에서 삭제
@@ -191,4 +155,3 @@ class DataManager {
     }
 }
 
-public class _DataManagement { /* do nothing */ }

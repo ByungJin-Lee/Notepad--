@@ -12,6 +12,7 @@ import me.byungjin.listeners.NoteNodeListener;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 
+import com.example.notepad__.DataManagement.FileInfo;
 import com.example.notepad__.R;
 
 public class MemoNode extends AppCompatButton {
@@ -19,7 +20,7 @@ public class MemoNode extends AppCompatButton {
     private String content = "";
     private String title = "";
     private boolean isModified = false;
-    private File file;
+    private FileInfo file;
     //Constructor
     public MemoNode(Context context){
         super(context);
@@ -53,10 +54,10 @@ public class MemoNode extends AppCompatButton {
     public String getContent(){
         return content;
     }
-    public void setFile(File _f){
+    public void setFile(FileInfo _f){
         file = _f;
     }
-    public File getFile(){
+    public FileInfo getFile(){
         return file;
     }
     public void setTitle(String _title){

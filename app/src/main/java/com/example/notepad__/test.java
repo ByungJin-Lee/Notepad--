@@ -1,13 +1,16 @@
 package com.example.notepad__;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.notepad__.DataManagement.DMconst;
+import com.example.notepad__.DataManagement.DataManager;
+import com.example.notepad__.DataManagement.FileInfo;
 
 public class test extends AppCompatActivity {
 
@@ -40,7 +43,7 @@ public class test extends AppCompatActivity {
                 }
 
                 for (FileInfo file : DataManager.files)
-                    str += file.index + " " + file.path + " " +  file.lastModified + "\n";
+                    str += file.getIndex() + " " + file.getPath() + " " +  file.getLastModified() + "\n";
 
                 txt_test.setText(str);
             }

@@ -1,7 +1,5 @@
 package com.example.notepad__;
 
-import com.example.notepad__._DataManagement;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;

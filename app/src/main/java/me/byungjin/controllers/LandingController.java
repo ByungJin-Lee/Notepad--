@@ -1,27 +1,18 @@
 package me.byungjin.controllers;
 
-import android.content.Context;
-import android.widget.LinearLayout;
+import com.example.notepad__.DataManagement.DataManager;
+import com.example.notepad__.DataManagement.FileInfo;
 
 import java.util.ArrayList;
 
 import me.byungjin.Manager;
-import me.byungjin.datas.File;
 import me.byungjin.views.MemoNode;
 
 public class LandingController {
-    //Test File List
-    static private File[] filelist = new File[15];
     //Memos
     static private ArrayList<MemoNode> memos = new ArrayList<MemoNode>();
-    //Static
-    public static void test(){
-        for(int i = 0; i < filelist.length; i++){
-            filelist[i] = new File("메모 "+i,""+i);
-        }
-    }
+    //Start
     public static void start(){
-        test();
         if(Manager.getMainActivityContext() != null && Manager.getMainActivityLinearLayout() != null){
             initArrayList();
             appendAll();
@@ -29,9 +20,10 @@ public class LandingController {
     }
     public static void initArrayList(){
         //Get data todo
-        for(File f : filelist){
+        for(FileInfo f : DataManager.files){
             MemoNode m = new MemoNode(Manager.getMainActivityContext());
             m.setFile(f);
+            memos.add(m);
             memos.add(m);
         }
     }
