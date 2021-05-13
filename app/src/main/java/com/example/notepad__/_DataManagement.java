@@ -177,11 +177,20 @@ class DataManager {
          * @param f 삭제할 파일의 fileInfo
          * @return 성공 여부를 return함.
          */
-        files.remove(f); // 지우려고 시도함.
-        File file = new File(f.path);
-        boolean res = file.delete();
-
-        return res;
+        if (!isExternalStorageReadable())
+            return false;
+        try {
+            files.remove(f); // 지우려고 시도함.
+            File file = new File(f.path);
+            boolean res = file.delete();
+            Log.v("알림", "delete try");
+            return res;
+        }
+        catch (Exception e) {
+            Log.e("알림", "delete 실패 - Exception");
+            Log.e("알림", e.getMessage());
+            return false;
+        }
     }
     static public boolean delete(int i) {
         /**

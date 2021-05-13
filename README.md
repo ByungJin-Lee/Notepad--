@@ -6,10 +6,14 @@ Owner: DoubleDeltas
 
 ### TODO:
 + study and exercise ~~Git, Github, and~~ Android Studio API.
-+ conceive File Format
++ ~~conceive File Format~~
++ ~~complete DataManager~~
 + apply to main project 
 
 ### Change Log:
++ work_doubledeltas : 1.4.1
+    + completed implements of all methods. (+ delete())
+
 + work_doubledeltas : 1.4
     + completed DataManager.search(), saveFile() implement!
 

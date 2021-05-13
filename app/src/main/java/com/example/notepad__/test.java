@@ -54,20 +54,19 @@ public class test extends AppCompatActivity {
                 boolean res = DataManager.saveText(fi, "wa sans");
 
                 str += String.valueOf(res) + '\n';
-
-                if (!res) {
-                    txt_test.setText(str);
-                    return;
-                }
                 txt_test.setText(str);
-                Log.v("알림", "onClick 종료");
             }
         });
 
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String str = "";
+                int i = Integer.parseInt(et_name.getText().toString());
+                boolean res = DataManager.delete(i);
 
+                str += String.valueOf(res) + '\n';
+                txt_test.setText(str);
             }
         });
 
