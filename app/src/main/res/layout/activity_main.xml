@@ -105,7 +105,6 @@
         android:textColor="@color/white"
         android:background="@drawable/btn_newnote">
     </Button>
-
     <!--    Footer Area -->
 <!--    <LinearLayout-->
 <!--        android:id="@+id/bottomLayout"-->
