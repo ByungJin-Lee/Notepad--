@@ -33,4 +33,4 @@ Commit Log
             + created New NoteNode
 Source of Resources
 ---
- ICON : sketchy pictogram icons by [Denis Sazhin](https://thenounproject.com/iconka/, "Click to go to his profile") in [Noun Project](https://thenounproject.com/, "click to go to Noun Project").
+ ICON Resources : sketchy pictogram icons by [Denis Sazhin](https://thenounproject.com/iconka/, "Click to go to his profile") in [Noun Project](https://thenounproject.com/, "click to go to Noun Project").

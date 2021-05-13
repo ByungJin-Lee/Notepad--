@@ -5,15 +5,13 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
+import me.byungjin.Manager;
 import me.byungjin.datas.File;
 import me.byungjin.views.MemoNode;
 
 public class LandingController {
     //Test File List
     static private File[] filelist = new File[15];
-    //Layout
-    static public Context context = null;
-    static public LinearLayout layout = null;
     //Memos
     static private ArrayList<MemoNode> memos = new ArrayList<MemoNode>();
     //Static
@@ -22,11 +20,9 @@ public class LandingController {
             filelist[i] = new File("메모 "+i,""+i);
         }
     }
-    public static void start(Context c, LinearLayout l){
-        context = c;
-        layout = l;
+    public static void start(){
         test();
-        if(context != null && layout != null){
+        if(Manager.getMainActivityContext() != null && Manager.getMainActivityLinearLayout() != null){
             initArrayList();
             appendAll();
         }
@@ -34,7 +30,7 @@ public class LandingController {
     public static void initArrayList(){
         //Get data todo
         for(File f : filelist){
-            MemoNode m = new MemoNode(context);
+            MemoNode m = new MemoNode(Manager.getMainActivityContext());
             m.setFile(f);
             memos.add(m);
         }
@@ -42,7 +38,7 @@ public class LandingController {
     public static void appendAll(){
         for(MemoNode n : memos){
             n.setText(n.getFile().getFileName());
-            layout.addView(n);
+            Manager.appendViewInMain(n);
         }
     }
     public static int aNumberOfMemo(){

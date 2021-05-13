@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+import me.byungjin.Manager;
 import me.byungjin.controllers.LandingController;
 import me.byungjin.datas.File;
 import me.byungjin.listeners.NoteNodeListener;
@@ -42,7 +43,7 @@ public class MemoNode extends AppCompatButton {
         }
     }
     private void init(){
-        setBackground(ContextCompat.getDrawable(LandingController.context, R.drawable.btn_memo));
+        setBackground(ContextCompat.getDrawable(Manager.getMainActivityContext(), R.drawable.btn_memo));
     }
 
     //Getter and Setter
