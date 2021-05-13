@@ -5,11 +5,14 @@ Branch _doubledeltas_
 Owner: DoubleDeltas
 
 ### TODO:
-+ study and exercise Git, Github, and Android Studio API.
++ study and exercise ~~Git, Github, and~~ Android Studio API.
 + conceive File Format
 + apply to main project 
 
 ### Change Log:
++ work_doubledeltas : 1.4
+    + completed DataManager.search(), saveFile() implement!
+
 + work_doubledeltas : 1.3.1: 2ND MEETING
     + created new branch from _doubledeltas 1.3.0_
     + designed File, DataManager class (roughly) 
