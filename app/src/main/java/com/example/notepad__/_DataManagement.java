@@ -1,12 +1,31 @@
 package com.example.notepad__;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Environment;
+import android.util.Log;
+import android.content.pm.PackageManager;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import static java.text.DateFormat.getDateTimeInstance;
+
+class DMconst {
+    private DMconst() {}; // 객체 생성 금지
+    static public final String DIR_PATH =
+            Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notepad--";
+}
 
 class FileInfo {
     /**
@@ -19,12 +38,21 @@ class FileInfo {
     public String path;
     public boolean isNew;
     public int index;
+    public String lastModified;
 
-    public FileInfo(String fileName, String path, boolean isNew, int index) {
+    public FileInfo(String fileName, String path, boolean isNew, int index, String lastModified) {
         this.fileName = fileName;
         this.path = path;
         this.isNew = isNew;
         this.index = index;
+        this.lastModified = lastModified;
+    }
+    public FileInfo(String fileName, int index) {
+        this(fileName, DMconst.DIR_PATH + "/" + fileName, false, index,
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                        .format(System.currentTimeMillis()));
+
+        Log.v("알림", "FileInfo 객체 생성(2 args)");
     }
 }
 
@@ -39,10 +67,7 @@ class DataManager {
      * @see     android.os.Environment
      */
 
-    static public String DIR_PATH =
-            Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notepad--";
-
-    static ArrayList<FileInfo> files;
+    static ArrayList<FileInfo> files = new ArrayList<FileInfo>();
 
     private DataManager() {} // 객체 생성을 막기 위한 private 생성자
 
@@ -51,10 +76,9 @@ class DataManager {
     }
 
     static public boolean isExternalStorageReadable() {
-//        String state = Environment.getExternalStorageState();
-//        return (Environment.MEDIA_MOUNTED.equals(state) ||
-//                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
-        return false;
+            String state = Environment.getExternalStorageState();
+            return (Environment.MEDIA_MOUNTED.equals(state) ||
+                    Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
     }
 
     static public boolean search(){
@@ -63,7 +87,8 @@ class DataManager {
          */
         if (!isExternalStorageReadable())
             return false;
-        File dir = new File(DIR_PATH);
+        files.clear();
+        File dir = new File(DMconst.DIR_PATH);
         try {
             if (!dir.exists()) {
                 dir.mkdirs();           // Notepad-- 폴더 생성
@@ -77,7 +102,9 @@ class DataManager {
                 if (lst[i].isDirectory())
                     continue;           // "Notepad--/(폴더)" 꼴은 일단 무시
                 String name = lst[i].getName();
-                FileInfo fi = new FileInfo(name, DIR_PATH + "/" + name, false, i);
+                FileInfo fi = new FileInfo(name, DMconst.DIR_PATH + "/" + name,false, i,
+                        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                                .format(lst[i].lastModified()));
                 files.add(fi);
             }
             return true;
@@ -99,14 +126,19 @@ class DataManager {
             return false;
         File file = new File(f.path);
         try {
-            if (!file.exists())
+            if (!file.exists()) {
                 file.createNewFile();
+                Log.v("알림", "save - 새 파일 생성됨");
+            }
             FileWriter writer = new FileWriter(file, false);
             writer.write(s);
             writer.close();
+            Log.v("알림", "save 완료. (" + f.fileName + ", " + s + ")");
             return true;
         }
         catch (IOException e) {
+            Log.e("알림", "save 실패. (" + f.fileName + ", " + s + ") - IOException");
+            Log.e("알림", e.getMessage());
             return false;
         }
     }
