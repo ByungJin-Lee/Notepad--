@@ -47,9 +47,11 @@ public class DataManager {
         try {
             if (!dir.exists()) {
                 dir.mkdirs();           // Notepad-- 폴더 생성
+                Log.e("Search", "폴더 생성");
                 return true;            // 검색 결과 없음
             }
             if (!dir.isDirectory()) {
+                Log.e("Search", "파일이 존재함");
                 return false;           // Notepad--라는 '파일'이 있어 생성 불가
             }
             File[] lst = dir.listFiles();
@@ -64,6 +66,7 @@ public class DataManager {
             }
             return true;
         } catch (Exception e) {
+            Log.e("Error", e.getMessage());
             return false;
         }
     }
@@ -82,7 +85,7 @@ public class DataManager {
         Log.e("알림", f.getPath());
         try {
             File dir = new File(DMconst.DIR_PATH);
-            if (dir.exists()) {
+            if (!dir.exists()) {
                 dir.mkdirs();           // Notepad-- 폴더 생성
                 return true;            // 검색 결과 없음
             }
@@ -131,6 +134,7 @@ public class DataManager {
     }
 
     static public boolean delete(FileInfo f) {
+        Log.e("Error", "Delete");
         /**
          * 외부 저장소와 files에서 f를 삭제함.
          * @param f 삭제할 파일의 fileInfo

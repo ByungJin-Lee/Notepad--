@@ -14,16 +14,16 @@ public class LandingController {
     //Start
     public static void start(){
         if(Manager.getMainActivityContext() != null && Manager.getMainActivityLinearLayout() != null){
+            DataManager.search();
             initArrayList();
             appendAll();
         }
     }
     public static void initArrayList(){
         //Get data todo
-        for(FileInfo f : DataManager.files){
+        for(int i = 0, size = DataManager.files.size(); i < size; i++){
             MemoNode m = new MemoNode(Manager.getMainActivityContext());
-            m.setFile(f);
-            memos.add(m);
+            m.setFile(DataManager.files.get(i));
             memos.add(m);
         }
     }

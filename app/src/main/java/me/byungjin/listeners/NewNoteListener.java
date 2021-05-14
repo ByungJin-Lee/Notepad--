@@ -20,7 +20,7 @@ public class NewNoteListener implements View.OnClickListener {
         FileInfo newFile = new FileInfo("No Title", true);
         TextEditController.setCurrentFile(newFile);
         //Switching
-        Intent textEdit = new Intent(currentContext.getApplicationContext(), test.class);
+        Intent textEdit = new Intent(currentContext.getApplicationContext(), TextEditorActivity.class);
         currentContext.startActivity(textEdit);
     }
 }
