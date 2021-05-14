@@ -81,6 +81,11 @@ public class DataManager {
         File file = new File(f.getPath());
         Log.e("알림", f.getPath());
         try {
+            File dir = new File(DMconst.DIR_PATH);
+            if (dir.exists()) {
+                dir.mkdirs();           // Notepad-- 폴더 생성
+                return true;            // 검색 결과 없음
+            }
             if (!file.exists()) {
                 file.createNewFile();
                 Log.v("알림", "save - 새 파일 생성됨");
