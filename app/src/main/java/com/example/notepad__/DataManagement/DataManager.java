@@ -79,6 +79,7 @@ public class DataManager {
         if (!isExternalStorageWritable())
             return false;
         File file = new File(f.getPath());
+        Log.e("알림", f.getPath());
         try {
             if (!file.exists()) {
                 file.createNewFile();
