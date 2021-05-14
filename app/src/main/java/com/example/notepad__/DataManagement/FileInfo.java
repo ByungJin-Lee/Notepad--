@@ -31,6 +31,9 @@ public class FileInfo {
 
         Log.v("알림", "FileInfo 객체 생성(2 args)");
     }
+    public FileInfo(String fileName, boolean isNew){
+        this(fileName, 0);
+    }
 
     public String getPath(){
         return path;
@@ -49,6 +52,9 @@ public class FileInfo {
     }
     public int getIndex(){
         return index;
+    }
+    public boolean getIsNew(){
+        return isNew;
     }
 }
 
