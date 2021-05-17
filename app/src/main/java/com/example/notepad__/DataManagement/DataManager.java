@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+
 public class DataManager {
     /**
      * @author DoubleDeltas
@@ -43,7 +44,7 @@ public class DataManager {
         if (!isExternalStorageReadable())
             return false;
         files.clear();
-        File dir = new File(DMconst.DIR_PATH);
+        File dir = DMconst.getBasePath();
         try {
             if (!dir.exists()) {
                 dir.mkdirs();           // Notepad-- 폴더 생성
@@ -59,9 +60,8 @@ public class DataManager {
                 if (lst[i].isDirectory())
                     continue;           // "Notepad--/(폴더)" 꼴은 일단 무시
                 String name = lst[i].getName();
-                FileInfo fi = new FileInfo(name, DMconst.DIR_PATH + "/" + name, false, i,
-                        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                                .format(lst[i].lastModified()));
+                FileInfo fi = new FileInfo(name, dir.getAbsolutePath() + "/" + name, false, i,
+                        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(lst[i].lastModified()));
                 files.add(fi);
             }
             return true;
@@ -84,7 +84,7 @@ public class DataManager {
         File file = new File(f.getPath());
         Log.e("알림", f.getPath());
         try {
-            File dir = new File(DMconst.DIR_PATH);
+            File dir = DMconst.getBasePath();
             if (!dir.exists()) {
                 dir.mkdirs();           // Notepad-- 폴더 생성
                 return true;            // 검색 결과 없음

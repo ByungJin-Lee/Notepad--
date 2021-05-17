@@ -25,9 +25,8 @@ public class FileInfo {
         this.lastModified = lastModified;
     }
     public FileInfo(String fileName, int index) {
-        this(fileName, DMconst.DIR_PATH + "/" + fileName, false, index,
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                        .format(System.currentTimeMillis()));
+        this(fileName, DMconst.getBasePath().getAbsolutePath() + "/" + fileName, false, index,
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis()));
 
         Log.v("알림", "FileInfo 객체 생성(2 args)");
     }

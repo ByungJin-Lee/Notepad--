@@ -1,6 +1,7 @@
 package com.example.notepad__;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import com.example.notepad__.DataManagement.DMconst;
 import com.example.notepad__.DataManagement.DataManager;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import me.byungjin.Manager;
 import me.byungjin.controllers.LandingController;
@@ -36,9 +39,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // DMconst 초기화
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            DMconst.init(getApplication());
+
         // 외부 저장소 권한 물어보기
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) // Marshmellow
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)     // Marshmallow
             checkPermission();
+
+        /* test - goto test Activity
+         *
+         * Intent intent = new Intent(MainActivity.this, test.class);
+         * startActivity(intent);
+         */
 
         //Search Files
         File path = Environment.getExternalStoragePublicDirectory("/Notepad--");
