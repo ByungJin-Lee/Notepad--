@@ -76,7 +76,7 @@ public class test extends AppCompatActivity {
         btn_showPath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txt_test.setText(DMconst.DIR_PATH);
+                txt_test.setText(DMconst.getBasePath().getAbsolutePath());
             }
         });
     }
