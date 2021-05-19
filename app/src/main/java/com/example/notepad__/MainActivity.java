@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private void checkPermission(){
         if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-            (new File(DMconst.DIR_PATH)).mkdir();
+            (new File(DMconst.DIR_PATH)).mkdirs();
         }else{
-            (new File(DMconst.DIR_PATH)).mkdir();
+            (new File(DMconst.DIR_PATH)).mkdirs();
         }
     }
 
