@@ -1,6 +1,7 @@
 package me.byungjin;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -15,6 +16,7 @@ public class Manager {
     //Methods
     static public void appendViewInMain(View v){
         if(mainActivityLinearLayout != null){
+            mainActivityLinearLayout.removeView(v);
             mainActivityLinearLayout.addView(v);
         }
     }

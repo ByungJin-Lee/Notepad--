@@ -1,5 +1,6 @@
 package me.byungjin.controllers;
 
+import android.util.Log;
 import android.widget.EditText;
 
 import com.example.notepad__.DataManagement.FileInfo;

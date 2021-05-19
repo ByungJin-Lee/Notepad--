@@ -1,5 +1,7 @@
 package me.byungjin.controllers;
 
+import android.util.Log;
+
 import com.example.notepad__.DataManagement.DataManager;
 import com.example.notepad__.DataManagement.FileInfo;
 
@@ -9,14 +11,12 @@ import me.byungjin.Manager;
 import me.byungjin.views.MemoNode;
 
 public class LandingController {
-    //Memos
-    static private ArrayList<MemoNode> memos = new ArrayList<MemoNode>();
+    public static int countMemos = 0;
     //Start
     public static void start(){
         if(Manager.getMainActivityContext() != null && Manager.getMainActivityLinearLayout() != null){
             DataManager.search();
             initArrayList();
-            appendAll();
         }
     }
     public static void initArrayList(){
@@ -24,16 +24,12 @@ public class LandingController {
         for(int i = 0, size = DataManager.files.size(); i < size; i++){
             MemoNode m = new MemoNode(Manager.getMainActivityContext());
             m.setFile(DataManager.files.get(i));
-            memos.add(m);
-        }
-    }
-    public static void appendAll(){
-        for(MemoNode n : memos){
-            n.setText(n.getFile().getFileName());
-            Manager.appendViewInMain(n);
+            m.setText(m.getFile().getFileName());
+            Manager.appendViewInMain(m);
+            countMemos = i+1;
         }
     }
     public static int aNumberOfMemo(){
-        return memos.size();
+        return countMemos;
     }
 }
