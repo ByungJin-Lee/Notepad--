@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
          * startActivity(intent);
          */
 
-        //Search Files
-        File path = Environment.getExternalStoragePublicDirectory("/Notepad--");
-        if(!path.exists()) path.mkdirs();
         //Manager
         Manager.setMainActivityContext(this);
         Manager.setMainActivityLinearLayout((LinearLayout)findViewById(R.id.innerLayout));

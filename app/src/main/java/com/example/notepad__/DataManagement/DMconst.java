@@ -12,8 +12,8 @@ import java.io.File;
 
 public class DMconst {
     Context appContext;
-    static public File BASE_DIR;
-    static public File OLD_BASE_DIR =       // Android 9 이하에 적용됨
+    static public File BASE_DIR;            // Android 4.4 이상에 적용됨
+    static public File OLD_BASE_DIR =       // Android 4.3 이하에 적용됨
             new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "/Notepad--");
 
     private DMconst() { } // 객체 생성 금지

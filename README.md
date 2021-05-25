@@ -13,6 +13,9 @@ Owner: DoubleDeltas
 + ???
 
 ### Change Log:
++ work_doubledeltas : 1.6.1
+    + minor modifying and delete dead code
+
 + work_doubledeltas : 1.6
     + (Tried to) Changed storage path for compatibility with Android 11+ (ver. _R_).
 
