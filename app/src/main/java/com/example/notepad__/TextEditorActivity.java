@@ -3,10 +3,12 @@ package com.example.notepad__;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -43,5 +45,14 @@ public class TextEditorActivity extends AppCompatActivity {
         Manager.setTextViewActivityContext(this);
         //BindEvents
         this.bindEvents();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();      // 뒤로 가기
+        new BackMainListener().onClick(null);
+        Toast
+            .makeText(this, "저장되었습니다.", Toast.LENGTH_LONG)
+            .show();
     }
 }
