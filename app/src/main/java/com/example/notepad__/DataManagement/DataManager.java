@@ -10,22 +10,21 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-
+/**
+ * @author DoubleDeltas
+ * @version 0.1
+ *
+ * @see FileInfo
+ * @see java.util.ArrayList
+ * @see java.io.FileReader
+ * @see java.io.FileWriter
+ * @see android.os.Environment
+ */
 public class DataManager {
-    /**
-     * @author DoubleDeltas
-     * @version 0.1
-     * @see FileInfo
-     * @see java.util.ArrayList
-     * @see java.io.FileReader
-     * @see java.io.FileWriter
-     * @see android.os.Environment
-     */
 
     public static ArrayList<FileInfo> files = new ArrayList<FileInfo>();
 
-    private DataManager() {
-    } // 객체 생성을 막기 위한 private 생성자
+    private DataManager() {} // 객체 생성을 막기 위한 private 생성자
 
     static public boolean isExternalStorageWritable() {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
@@ -37,10 +36,11 @@ public class DataManager {
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
     }
 
+    /**
+     * 외부 저장소에서 파일을 불러와 files에 append.
+     * @return 파일을 불러오는데 성공하면 true, 아니면 false.
+     */
     static public boolean search() {
-        /**
-         * 외부 저장소에서 파일을 불러와 files에 append.
-         */
         if (!isExternalStorageReadable())
             return false;
         files.clear();
@@ -71,14 +71,14 @@ public class DataManager {
         }
     }
 
+    /**
+     * <code>f</code>의 내용을 <code>s</code>로 갱신한 후 <code>files</code>와 외부 저장소에 적용하는 메소드.
+     * 파일이 없으면 생성됨.
+     * @param f 내용이 저장될 <code>FileInfo</code> 객체
+     * @param s 저장할 내용
+     * @return 파일 생성 성공 여부를 return.
+     */
     static public boolean saveText(FileInfo f, String s) {
-        /**
-         * f의 내용을 s로 갱신한 후 files와 외부 저장소에 적용
-         * 파일이 없으면 생성됨.
-         * @param f 내용이 저장될 FileInfo
-         * @param s 저장할 내용
-         * @return 파일 생성 성공 여부를 return.
-         */
         if (!isExternalStorageWritable())
             return false;
         File file = new File(f.getPath());
@@ -105,12 +105,12 @@ public class DataManager {
         }
     }
 
+    /**
+     * <code>f</code>를 불러와 내용을 return하는 메소드.
+     * @param f 내용을 불러올 <code>FileInfo</code> 객체
+     * @return <code>f</code>의 내용을 return. 불러오기 실패하면 <code>null</code>을 return.
+     */
     static public String loadText(FileInfo f) {
-        /**
-         * f를 불러와 내용을 return함.
-         * @param f 내용을 불러올 FileInfo
-         * @return f의 내용을 return. 불러오기 실패하면 null을 return.
-         */
         if (!isExternalStorageReadable())
             return null;
         File file = new File(f.getPath());
@@ -124,22 +124,19 @@ public class DataManager {
         }
     }
 
-    static public String loadText(int i) {
-        /**
-         * DataManager.files[i]를 불러와 내용을 return함.
-         * @param i 불러올 파일의 인덱스
-         * @return files[i]의 내용을 return. 불러오기 실패하면 null을 return.
-         */
-        return loadText(files.get(i));
-    }
+    /**
+     * <code>DataManager.files[i]</code>를 불러와 내용을 return하는 메소드.
+     * @param i 불러올 파일의 인덱스
+     * @return <code>files[i]</code>의 내용을 return. 불러오기 실패하면 <code>null</code>을 return.
+     */
+    static public String loadText(int i) { return loadText(files.get(i)); }
 
+    /**
+     * 외부 저장소와 <code>files</code>에서 <code>f</code>를 삭제하는 메소드.
+     * @param f 삭제할 파일의 FileInfo
+     * @return 성공 여부를 return함.
+     */
     static public boolean delete(FileInfo f) {
-        Log.e("Error", "Delete");
-        /**
-         * 외부 저장소와 files에서 f를 삭제함.
-         * @param f 삭제할 파일의 fileInfo
-         * @return 성공 여부를 return함.
-         */
         if (!isExternalStorageReadable())
             return false;
         try {
@@ -155,13 +152,11 @@ public class DataManager {
         }
     }
 
-    static public boolean delete(int i) {
-        /**
-         * DataManager.files[i]을 외부저장소와 files에서 삭제
-         * @param i 삭제할 파일의 인덱스
-         * @return 성공 여부를 return함.
-         */
-        return delete(files.get(i));
-    }
+    /**
+     * <code>DataManager.files[i]</code>을 외부저장소와 <code>files</code>에서 삭제하는 메소드
+     * @param i 삭제할 파일의 인덱스
+     * @return 성공 여부를 return함.
+     */
+    static public boolean delete(int i) { return delete(files.get(i)); }
 }
 
