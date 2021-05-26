@@ -19,14 +19,14 @@ import me.byungjin.views.MemoNode;
 public class NoteNodeListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
-        if (!(v instanceof TextView))
+        if (!(v instanceof MemoNode))
             return;
 
         Context currentContext = Manager.getMainActivityContext();
 
         FileInfo chosenFileInfo = null;
         for (FileInfo f : DataManager.files) {
-            if (f.getFileName() == ((TextView)v).getText()) {
+            if (f.getFileName() == ((MemoNode)v).getText()) {
                 chosenFileInfo = f;
                 break;
             }
