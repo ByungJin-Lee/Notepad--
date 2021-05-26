@@ -9,6 +9,9 @@ import com.example.notepad__.DataManagement.DataManager;
 import com.example.notepad__.DataManagement.FileInfo;
 import com.example.notepad__.MainActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import me.byungjin.Manager;
 import me.byungjin.controllers.TextEditController;
 
@@ -20,8 +23,17 @@ public class BackMainListener implements View.OnClickListener {
         String      previousFileName    = file.getFileName();
 
         //현재 파일 저장
-        if(TextEditController.update()){
-            file.setPath(file.getPath().replace(previousFileName, file.getFileName()));
+        boolean isUpdated = TextEditController.update();
+        if(isUpdated){
+            // 경로의 마지막 이름을 바꾼 것을 file.setPath()의 인수로 함
+            ArrayList<String> pathArray = new ArrayList(Arrays.asList(file.getPath().split("/")));
+            String            newPath   = "";
+
+            pathArray.remove(pathArray.size() - 1);
+            pathArray.add(file.getFileName());
+            for (String s : pathArray) { newPath += s; }
+
+            file.setPath(newPath);
         }
         DataManager.saveText(file, TextEditController.getContentText());
 

@@ -38,9 +38,7 @@ public class FileInfo {
         this(fileName, 0);
     }
 
-    public String getPath(){
-        return path;
-    }
+    public String getPath() { return path; }
     public String getFileName(){
         return fileName;
     }
