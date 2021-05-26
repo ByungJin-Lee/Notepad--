@@ -2,6 +2,7 @@ package me.byungjin.controllers;
 
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.View;
 
 import com.example.notepad__.DataManagement.DataManager;
 import com.example.notepad__.DataManagement.FileInfo;
@@ -9,6 +10,7 @@ import com.example.notepad__.DataManagement.FileInfo;
 import java.util.ArrayList;
 
 import me.byungjin.Manager;
+import me.byungjin.listeners.NoteNodeListener;
 import me.byungjin.views.MemoNode;
 
 public class LandingController {

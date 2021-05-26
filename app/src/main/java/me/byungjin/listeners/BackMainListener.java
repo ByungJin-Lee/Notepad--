@@ -22,10 +22,10 @@ public class BackMainListener implements View.OnClickListener {
         FileInfo    file        = TextEditController.getCurrentFile();
 
         //현재 파일 저장
-        boolean isUpdated   = TextEditController.update();
+        boolean isUpdated = TextEditController.update();
         if(isUpdated){
             String  oldFileName = file.getFileName();
-            String  newFileName = null;
+            String  newFileName;
 
             // 경로의 마지막(파일명)을 바꾼 것을 file.setPath()의 인수로 함
             ArrayList<String> pathArray
