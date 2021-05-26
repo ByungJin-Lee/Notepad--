@@ -20,18 +20,21 @@ public class BackMainListener implements View.OnClickListener {
     public void onClick(View v) {
         Context     textEdit            = Manager.getTextViewActivityContext();
         FileInfo    file                = TextEditController.getCurrentFile();
-        String      previousFileName    = file.getFileName();
 
         //현재 파일 저장
         boolean isUpdated = TextEditController.update();
         if(isUpdated){
-            // 경로의 마지막 이름을 바꾼 것을 file.setPath()의 인수로 함
-            ArrayList<String> pathArray = new ArrayList(Arrays.asList(file.getPath().split("/")));
+            // 경로의 마지막(파일명)을 바꾼 것을 file.setPath()의 인수로 함
+            ArrayList<String> pathArray
+                    = new ArrayList(Arrays.asList(file.getPath().split("/")));
             String            newPath   = "";
 
             pathArray.remove(pathArray.size() - 1);
             pathArray.add(file.getFileName());
-            for (String s : pathArray) { newPath += s; }
+            for (int i = 0; i < pathArray.size() - 1; i++) {
+                newPath += pathArray.get(i) + "/";
+            }
+            newPath += pathArray.get(pathArray.size() - 1);
 
             file.setPath(newPath);
         }
