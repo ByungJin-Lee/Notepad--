@@ -24,15 +24,12 @@ public class TextEditorActivity extends AppCompatActivity {
     private Button      backToMain      = null;
     private EditText    et_title        = null;
     private EditText    et_textContent  = null;
+
+    private String      initialTitle    = null;     // Activity 시작했을 때의 제목
+    private String      initialContent  = null;     // Activity 시작했을 때의 내용
+    private boolean     isTitleEdited   = false;
+    private boolean     isContentEdited = false;
     private boolean     isEdited        = false;
-    private TextWatcher WatcherIfEdited = new TextWatcher() {
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            isEdited = true;
-        }
-        @Override public void afterTextChanged(Editable arg0) {}
-        @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-    };
 
     private void reset(){
         backToMain      = findViewById(R.id.btn_backToMain);
@@ -47,8 +44,26 @@ public class TextEditorActivity extends AppCompatActivity {
         if(this.backToMain != null){
             this.backToMain.setOnClickListener(new BackMainListener());
         }
-        et_title.addTextChangedListener(WatcherIfEdited);
-        et_textContent.addTextChangedListener(WatcherIfEdited);
+        //  TODO - 병진's 스타일로 refactoring
+        //  new TextWatcher() {...} --> class TitleModificationWatcher implements TextWatcher {...}
+        et_title.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                isTitleEdited = !s.equals(initialTitle);
+                isEdited      = isTitleEdited || isContentEdited;
+            }
+            @Override public void afterTextChanged(Editable arg0) {}
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        });
+        et_textContent.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                isContentEdited = !s.equals(initialContent);
+                isEdited        = isTitleEdited || isContentEdited;
+            }
+            @Override public void afterTextChanged(Editable arg0) {}
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        });
     }
 
     @Override
@@ -63,6 +78,9 @@ public class TextEditorActivity extends AppCompatActivity {
         Manager.setTextViewActivityContext(this);
         //BindEvents
         this.bindEvents();
+        //Initial Title and Content
+        initialTitle    = et_title.getText().toString();
+        initialContent  = et_textContent.getText().toString();
     }
 
     @Override

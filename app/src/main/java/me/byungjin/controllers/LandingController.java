@@ -1,5 +1,6 @@
 package me.byungjin.controllers;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.example.notepad__.DataManagement.DataManager;
@@ -26,8 +27,8 @@ public class LandingController {
             m.setFile(DataManager.files.get(i));
             m.setText(m.getFile().getFileName());
             Manager.appendViewInMain(m);
-            countMemos = i+1;
         }
+        countMemos = DataManager.files.size();
     }
     public static int aNumberOfMemo(){
         return countMemos;
