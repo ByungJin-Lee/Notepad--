@@ -2,11 +2,8 @@ package me.byungjin.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import me.byungjin.Manager;
-import me.byungjin.controllers.LandingController;
-import me.byungjin.datas.File;
 import me.byungjin.listeners.NoteNodeListener;
 
 import androidx.appcompat.widget.AppCompatButton;
