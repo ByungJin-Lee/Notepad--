@@ -3,6 +3,7 @@ package me.byungjin.controllers;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.example.notepad__.DataManagement.DataManager;
 import com.example.notepad__.DataManagement.FileInfo;
 
 public class TextEditController {
@@ -10,13 +11,6 @@ public class TextEditController {
     static private FileInfo currentFile = null;
     static private EditText title = null;
     static private EditText content = null;
-    //Methods
-    static public void start(){
-        bindEvents();
-    }
-    static private void bindEvents(){
-
-    }
 
     static public boolean isCheck(){
         if(currentFile == null) return false;
@@ -37,6 +31,7 @@ public class TextEditController {
     static public void reset(){
         if(isCheck()){
             title.setText(currentFile.getFileName());
+            content.setText(DataManager.loadText(currentFile).trim());
         }
     }
 

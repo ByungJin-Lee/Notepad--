@@ -40,7 +40,7 @@ public class TextEditorActivity extends AppCompatActivity {
         this.reset();
         TextEditController.reset();
         //Manager
-        Manager.setTextViewActivityContext(this);
+        Manager.setTextEditActivityContext(this);
         //BindEvents
         this.bindEvents();
     }

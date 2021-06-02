@@ -15,7 +15,7 @@ import me.byungjin.controllers.TextEditController;
 public class BackMainListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
-        Context textEdit = Manager.getTextViewActivityContext();
+        Context textEdit = Manager.getTextEditActivityContext();
         FileInfo file = TextEditController.getCurrentFile();
         String previousFileName = file.getFileName();
         //현재 파일 저장

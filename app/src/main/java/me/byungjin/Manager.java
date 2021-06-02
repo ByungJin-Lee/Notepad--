@@ -11,18 +11,14 @@ public class Manager {
     static private LinearLayout mainActivityLinearLayout = null;
     //TextView
     static private Context textViewActivityContext = null;
-    static private LinearLayout textViewActivityLinearLayout = null;
+    //TextEdit
+    private static Context textEditActivityContext = null;
     //Layout
     //Methods
     static public void appendViewInMain(View v){
         if(mainActivityLinearLayout != null){
             mainActivityLinearLayout.removeView(v);
             mainActivityLinearLayout.addView(v);
-        }
-    }
-    static public void appendViewInTextView(View v){
-        if(textViewActivityLinearLayout != null){
-            textViewActivityLinearLayout.addView(v);
         }
     }
     //Getter and Setter
@@ -38,16 +34,9 @@ public class Manager {
     static public void setMainActivityLinearLayout(LinearLayout l){
         mainActivityLinearLayout = l;
     }
-    static public Context getTextViewActivityContext(){
-        return textViewActivityContext;
-    }
-    static public void setTextViewActivityContext(Context c){
-        textViewActivityContext = c;
-    }
-    static public void setTextViewActivityLinearLayout(LinearLayout l){
-        textViewActivityLinearLayout = l;
-    }
-    static public LinearLayout getTextViewActivityLinearLayout(){
-        return textViewActivityLinearLayout;
-    }
+
+    static public Context getTextViewActivityContext(){ return textViewActivityContext; }
+    static public void setTextViewActivityContext(Context c){ textViewActivityContext = c; }
+    public static void setTextEditActivityContext(Context c){textEditActivityContext = c;}
+    public static Context getTextEditActivityContext() {return textEditActivityContext;}
 }
