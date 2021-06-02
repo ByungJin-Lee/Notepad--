@@ -31,7 +31,9 @@ public class TextEditController {
     static public void reset(){
         if(isCheck()){
             title.setText(currentFile.getFileName());
-            content.setText(DataManager.loadText(currentFile).trim());
+            if(!currentFile.getIsNew()){
+                content.setText(DataManager.loadText(currentFile).trim());
+            }
         }
     }
 

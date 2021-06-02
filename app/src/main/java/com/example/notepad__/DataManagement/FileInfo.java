@@ -31,7 +31,8 @@ public class FileInfo {
         Log.v("알림", "FileInfo 객체 생성(2 args)");
     }
     public FileInfo(String fileName, boolean isNew){
-        this(fileName, 0);
+        this(fileName, DMconst.getBasePath().getAbsolutePath() + "/" + fileName, isNew, 0,
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis()));
     }
 
     public String getPath(){
