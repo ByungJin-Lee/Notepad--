@@ -23,6 +23,44 @@ Summary
     +   Day(26)
         +   Presentation
         +   Finish Project
+
+Presentation
+---
+![슬라이드1](./Presentation/슬라이드1.jpg)
+   
+![슬라이드2](./Presentation/슬라이드2.jpg)
+   
+![슬라이드3](./Presentation/슬라이드3.jpg)
+   
+![슬라이드4](./Presentation/슬라이드4.jpg)
+   
+![슬라이드5](./Presentation/슬라이드5.jpg)
+   
+![슬라이드6](./Presentation/슬라이드6.jpg)
+   
+![슬라이드7](./Presentation/슬라이드7.jpg)
+   
+![슬라이드8](./Presentation/슬라이드8.jpg)
+   
+![슬라이드9](./Presentation/슬라이드9.jpg)
+   
+![슬라이드10](./Presentation/슬라이드10.jpg)
+   
+![슬라이드11](./Presentation/슬라이드11.jpg)
+   
+![슬라이드12](./Presentation/슬라이드12.jpg)
+   
+![슬라이드13](./Presentation/슬라이드13.jpg)
+   
+![슬라이드14](./Presentation/슬라이드14.jpg)
+   
+![슬라이드15](./Presentation/슬라이드15.jpg)
+   
+![슬라이드16](./Presentation/슬라이드16.jpg)
+   
+![슬라이드17](./Presentation/슬라이드17.jpg)
+   
+![슬라이드18](./Presentation/슬라이드18.jpg)
    
 Branch
 ---
@@ -50,7 +88,7 @@ Branch
     +   work_lee20203188
         + Onwer : Lee20203188
         + Part : UI Design
-   
+
 Detail
 ---
 +   master : 1.0.0
@@ -64,3 +102,5 @@ Detail
         +   change content
 + master : 1.0.2
     +   updated - README.md
++ master : 1.1.0
+    +   merged - work_byungjin
