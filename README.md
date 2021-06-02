@@ -62,6 +62,16 @@ Presentation
    
 ![슬라이드18](./Presentation/슬라이드18.JPG)
    
+![슬라이드19](./Presentation/슬라이드19.JPG)
+   
+![슬라이드20](./Presentation/슬라이드20.JPG)
+   
+![슬라이드21](./Presentation/슬라이드21.JPG)
+   
+![슬라이드22](./Presentation/슬라이드22.JPG)
+   
+![슬라이드23](./Presentation/슬라이드23.JPG)
+   
 Branch
 ---
 +   master
