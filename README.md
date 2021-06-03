@@ -82,21 +82,21 @@ Branch
    
 +   Study 
     +   byungjin
-        + Onwer : Byungjin.dev@gmail.com          
+        + Owner : Byungjin.dev@gmail.com          
     +   doubledelta
-        + Onwer : DoubleDeltas       
+        + Owner : DoubleDeltas       
     +   lee20203188
-        + Onwer : Lee20203188    
+        + Owner : Lee20203188    
 + Work   
     +   work_byungjin
-        + Onwer : Byungjin.dev@gmail.com
+        + Owner : Byungjin.dev@gmail.com
         + Part : Front Event, Page Interaction
         + me.byungjin.*   
     +   work_doubledelta
-        + Onwer : DoubleDeltas
+        + Owner : DoubleDeltas
         + Part : File I/O, Permission
     +   work_lee20203188
-        + Onwer : Lee20203188
+        + Owner : Lee20203188
         + Part : UI Design
 
 Detail
@@ -114,3 +114,5 @@ Detail
     +   updated - README.md
 + master : 1.1.0
     +   merged - work_byungjin
++ master : 1.1.1
+    +   updated - presentation
