@@ -5,7 +5,6 @@ Summary
 + Team
     +   Byungjin.dev@gmail.com - Leader
     +   DoubleDeltas
-    +   Lee20203188
    
 + Purpose
     +   Learn Android Application(with Java)
@@ -85,8 +84,7 @@ Branch
         + Owner : Byungjin.dev@gmail.com          
     +   doubledelta
         + Owner : DoubleDeltas       
-    +   lee20203188
-        + Owner : Lee20203188    
+     
 + Work   
     +   work_byungjin
         + Owner : Byungjin.dev@gmail.com
@@ -95,10 +93,7 @@ Branch
     +   work_doubledelta
         + Owner : DoubleDeltas
         + Part : File I/O, Permission
-    +   work_lee20203188
-        + Owner : Lee20203188
-        + Part : UI Design
-
+   
 Detail
 ---
 +   master : 1.0.0
